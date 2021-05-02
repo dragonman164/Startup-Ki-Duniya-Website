@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Col } from "react-bootstrap";
 import { useState } from "react";
 import Alert from "../AlertBox";
 
@@ -9,52 +9,64 @@ const CompanyRegisteration = () => {
   return (
     <>
       <Alert show={show} setShow={setShow} text={text} />
-
-      <div className="container shadow-lg font-weight-bold text-dark my-5 py-3">
-        <h2 className="text-center">We require Following Details from you:</h2>
-
+      <div className="container ">
+        <h3>Enter the following details to register</h3>
         <Form>
-          <Form.Group controlId="name">
-            <Form.Label>Company Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter Company's Name" />
+          <Form.Group controlId="formGridAddress2">
+            <Form.Label>Name of Startup</Form.Label>
+            <Form.Control placeholder="Enter Name of the startup" />
           </Form.Group>
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+            </Form.Group>
 
-          <Form.Group controlId="email">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="For eg: abc@gmail.com" />
-          </Form.Group>
-          <Form.Group controlId="number">
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group controlId="formGridNumber">
             <Form.Label>Contact Number</Form.Label>
-            <Form.Control type="name" placeholder="e.g. 0000000000" />
+            <Form.Control placeholder="Enter Contact Number" type="contact" />
           </Form.Group>
-          <Form.Group controlId="college">
+
+          <Form.Group controlId="formGridAddress2">
             <Form.Label>College Name</Form.Label>
-            <Form.Control type="name" placeholder="e.g. Thapar" />
-          </Form.Group>
-          <Form.Group controlId="location">
-            <Form.Label>Company's Location</Form.Label>
-            <Form.Control type="location" placeholder="For eg:Patiala" />
-          </Form.Group>
-          <Form.Group controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control placeholder="Enter your college name" />
           </Form.Group>
 
-          <Form.Group controlId="retypepassword">
-            <Form.Label>Retype Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridCity">
+              <Form.Label>City</Form.Label>
+              <Form.Control />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridState">
+              <Form.Label>State</Form.Label>
+              <Form.Control as="select" defaultValue="Choose...">
+                <option>Choose...</option>
+                <option>...</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridZip">
+              <Form.Label>Zip</Form.Label>
+              <Form.Control />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group id="formGridCheckbox">
+            <Form.Check
+              type="checkbox"
+              label="I agree to the terms and conditions"
+            />
           </Form.Group>
 
-          <Form.Group controlId="link">
-            <Form.Label>Add link to one of the id-proof</Form.Label>
-            <Form.Control type="link" placeholder="For eg: AadharCard" />
-          </Form.Group>
-          <Button
-            variant="success"
-            className="btn-lg"
-            onClick={() => setShow(true)}
-          >
-            Register yourself
+          <Button variant="primary" type="submit">
+            Register
           </Button>
         </Form>
       </div>
