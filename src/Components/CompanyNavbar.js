@@ -10,7 +10,7 @@ const fontStyle = {
 
 const NavbarStyle = {
   textDecoration: "inherit",
-  color: "white",
+  color: "black",
   fontWeight: "bold",
 };
 
@@ -24,8 +24,8 @@ const CompanyNavbar = (props) => {
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="dark"
-        variant="dark"
+        bg="light"
+        variant="light"
         className="font-weight-bold h5 fixed-top"
       >
         <Navbar.Brand className="mx-2">Startup Ki Duniya</Navbar.Brand>
@@ -39,7 +39,7 @@ const CompanyNavbar = (props) => {
             </Nav.Link>
             <Nav.Link style={fontStyle}>
               <Link to="/companydashboard" style={NavbarStyle}>
-                Dashboard
+                Post Internship
               </Link>
             </Nav.Link>
             <Nav.Link style={fontStyle}>
@@ -51,6 +51,7 @@ const CompanyNavbar = (props) => {
           </Nav>
           <Nav>
             <Button
+              variant="outline-primary"
               className="btn-lg font-weight-bold mx-2 my-1"
               onClick={() => {
                 handleShow();
@@ -61,7 +62,7 @@ const CompanyNavbar = (props) => {
             <Route
               render={({ history }) => (
                 <Button
-                  variant="danger"
+                  variant="primary"
                   className="btn-lg font-weight-bold mx-2 my-1"
                   onClick={() => {
                     props.changeNav(0);
