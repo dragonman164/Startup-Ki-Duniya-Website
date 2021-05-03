@@ -44,7 +44,7 @@ const CompanyNavbar = (props) => {
             </Nav.Link>
             <Nav.Link style={fontStyle}>
               <Link to="/companyapplications" style={NavbarStyle}>
-                Application Status
+                Internships
               </Link>
             </Nav.Link>
             <Form inline></Form>

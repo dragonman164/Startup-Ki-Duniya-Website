@@ -16,7 +16,12 @@ const CompanyApplicationCard = (props) => {
             </h4>
           </Card.Subtitle>
           <Card.Text className="font-weight-bolder"></Card.Text>
-          <Button className="btn-lg font-weight-bold mx-2 my-1">
+          <Button
+            className="btn-lg font-weight-bold mx-2 my-1"
+            onClick={() => {
+              props.onWithdraw(props.id);
+            }}
+          >
             {" "}
             Withdraw post
           </Button>

@@ -43,7 +43,6 @@ const ApplicationStatus = () => {
   }
   function removeCompany(id) {
     CompanyDetails = CompanyDetails.filter((elem) => elem.id !== id);
-    setUpdate((prev) => !prev);
   }
 
   return (
@@ -54,8 +53,8 @@ const ApplicationStatus = () => {
         apply={CompanyDetails}
         add={addCompany}
       />
-      <div className="container shadow-lg text-dark py-5 my-5 p-5" >
-        <h1>You Have Applied for Following Companies:</h1>
+      <h1 className="text-center">My Applications</h1>
+      <div className="container shadow-lg text-dark py-5 my-5 p-5">
         {CompanyDetails.map((elem) => {
           return (
             <ApplicationStatusCard
