@@ -34,7 +34,7 @@ const NavBar = (props) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link style={fontStyle}>
+            <Nav.Link className="ml-5" style={fontStyle}>
               <Link to="/" style={NavbarStyle}>
                 Home
               </Link>

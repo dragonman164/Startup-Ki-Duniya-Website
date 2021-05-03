@@ -1,4 +1,4 @@
-import { Card,  Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 const ApplicationStatusCard = (props) => {
   let color = "success";
   let input_color = "#ffffff";
@@ -20,17 +20,13 @@ const ApplicationStatusCard = (props) => {
           <Row>
             <Col sm={6}>
               <Card.Title>
-                <h4 className="font-weight-bold">
-                  Company Name : 
-                </h4>
+                <h4 className="font-weight-bold">Company Name :</h4>
                 <h4>{props.company}</h4>
               </Card.Title>
             </Col>
             <Col sm={6}>
               <div>
-              <h4 className="font-weight-bold">
-                  Status: 
-                </h4>
+                <h4 className="font-weight-bold">Status:</h4>
                 <h4>
                   <input
                     type="color"
