@@ -1,7 +1,7 @@
 import ApplicationStatusCard from "../ApplicationStatusCard";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
-import ApplicationStatusModal from "../ApplicationStatusModal";
+import ApplicationStatusModal from "./Home";
 let CompanyDetails = [
   {
     id: 1,
@@ -30,29 +30,14 @@ let CompanyDetails = [
 ];
 
 const ApplicationStatus = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   // eslint-disable-next-line
-  const [update, setUpdate] = useState(false);
-
-  function addCompany(elem) {
-    CompanyDetails.push(elem);
-    setUpdate((prev) => !prev);
-  }
   function removeCompany(id) {
     CompanyDetails = CompanyDetails.filter((elem) => elem.id !== id);
   }
 
   return (
     <>
-      <ApplicationStatusModal
-        show={show}
-        handleClose={handleClose}
-        apply={CompanyDetails}
-        add={addCompany}
-      />
+      {/* <ApplicationStatusModal apply={CompanyDetails} add={addCompany} /> */}
       <h1 className="text-center">My Applications</h1>
       <div className="container shadow-lg text-dark py-5 my-5 p-5">
         {CompanyDetails.map((elem) => {
@@ -69,16 +54,6 @@ const ApplicationStatus = () => {
             />
           );
         })}
-
-        <Button
-          variant="primary"
-          className="btn-lg font-weight-bold mx-5 my-3"
-          onClick={() => {
-            handleShow();
-          }}
-        >
-          Click Here to Apply for Available Companies
-        </Button>
       </div>
     </>
   );
