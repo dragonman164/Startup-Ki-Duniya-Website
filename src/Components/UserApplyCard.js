@@ -2,7 +2,7 @@ import { Card, Button } from "react-bootstrap";
 
 const UserApplyCard = (props) => {
   return (
-    <Card className="bg-info mx-5 my-5 text-light">
+    <Card className="bg-white mx-5 my-5 text-dark">
       <Card.Body>
         <Card.Title>
           <h5 className="font-weight-bold">Company Name : {props.name}</h5>
