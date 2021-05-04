@@ -1,6 +1,6 @@
 import { Button, Modal, Form } from "react-bootstrap";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 let name = "";
 let email = "";
 let phone = "";
@@ -10,11 +10,33 @@ let techSkills = [];
 let nontechSkills = [];
 let programmingLanguages = [];
 let educationDetails = [];
-
+// let neweducationDetails=[];
 const UserProfileModal = (props) => {
   // eslint-disable-next-line
   const [update, setupDate] = useState(false);
+  const UpdateUserProfile = async () => {
+    // console.log(educationDetails);
 
+    await educationDetails.filter((user, i) => i != 0);
+    // console.log(educationDetails);
+    const user_data = {
+      description: description,
+      fieldOfExpertise: field,
+      nonTechSkills: nontechSkills,
+      techSkills: techSkills,
+      programmingLanguages: programmingLanguages,
+      educationDetails: educationDetails,
+    };
+    console.log(programmingLanguages);
+    axios
+      .post("http://localhost:5000/v1/userDashboard", user_data)
+      .then((res) => {
+        console.log(res.data);
+      });
+  };
+  // useEffect(() => {
+  // //  console.log(neweducationDetails);
+  // }, [neweducationDetails])
   return (
     <Modal show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
@@ -41,7 +63,7 @@ const UserProfileModal = (props) => {
               type="email"
               placeholder="Your Email"
             />
-          </Form.Group> 
+          </Form.Group>
           <Form.Group controlId="phone">
             <Form.Label>Phone</Form.Label>
             <Form.Control
@@ -74,7 +96,7 @@ const UserProfileModal = (props) => {
                     <Form.Label>Year</Form.Label>
                     <Form.Control
                       onChange={(e) => {
-                        educationDetails[i].Year = e.target.value;
+                        educationDetails[i].year = e.target.value;
                       }}
                       type="number"
                       placeholder="eg:2021"
@@ -84,7 +106,7 @@ const UserProfileModal = (props) => {
                     <Form.Label>Degree/Examination</Form.Label>
                     <Form.Control
                       onChange={(e) => {
-                        educationDetails[i].Exam = e.target.value;
+                        educationDetails[i].degree = e.target.value;
                       }}
                       type="text"
                       placeholder="Exam"
@@ -94,7 +116,7 @@ const UserProfileModal = (props) => {
                     <Form.Label>Institution/Board</Form.Label>
                     <Form.Control
                       onChange={(e) => {
-                        educationDetails[i].Board = e.target.value;
+                        educationDetails[i].institution = e.target.value;
                       }}
                       type="text"
                       placeholder="Eg : CBSE"
@@ -104,7 +126,7 @@ const UserProfileModal = (props) => {
                     <Form.Label>CGPA/Marks</Form.Label>
                     <Form.Control
                       onChange={(e) => {
-                        educationDetails[i].Marks = e.target.value;
+                        educationDetails[i].cgpa = e.target.value;
                       }}
                       type="text"
                       placeholder="Enter your Marks"
@@ -116,12 +138,7 @@ const UserProfileModal = (props) => {
             <Button
               variant="success mx-2"
               onClick={() => {
-                educationDetails.push({
-                  Year: 0,
-                  Exam: "",
-                  Board: "",
-                  Marks: "",
-                });
+                educationDetails.push({});
                 setupDate((prev) => !prev);
               }}
             >
@@ -148,14 +165,15 @@ const UserProfileModal = (props) => {
                     <Form.Label>Prog Lang</Form.Label>
                     <Form.Control
                       onChange={(e) => {
-                        programmingLanguages[i].language = e.target.value;
+                        programmingLanguages[i].proglang = e.target.value;
                       }}
                       as="select"
+                      defaultValue="C++"
                     >
-                      <option>C++</option>
-                      <option>Python</option>
-                      <option>JS</option>
-                      <option>Java</option>
+                      <option value="C++">C++</option>
+                      <option value="Pyhton">Python</option>
+                      <option value="JS">JS</option>
+                      <option value="Java">Java</option>
                     </Form.Control>
                   </div>
                   <div className="col-4">
@@ -178,8 +196,7 @@ const UserProfileModal = (props) => {
               className="btn-sm my-2"
               onClick={() => {
                 programmingLanguages.push({
-                  language: "C++",
-                  rating: 0,
+                  // "proglang": programmingLanguages[i].proglang,
                 });
                 setupDate((prev) => !prev);
               }}
@@ -309,6 +326,7 @@ const UserProfileModal = (props) => {
               programmingLanguages
             );
             props.handleClose();
+            UpdateUserProfile();
           }}
         >
           Save Changes

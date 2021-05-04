@@ -14,7 +14,6 @@ let education = [];
 let programmingLanguages = [];
 
 const Dashboard = () => {
-  // eslint-disable-next-line
   const [updatePage, setUpdatePage] = useState(true);
 
   function updateDashBoard(
@@ -178,9 +177,6 @@ const Dashboard = () => {
         </div>
 
         <div className="p-4">
-          <h4>Skill Set:</h4>
-        </div>
-        <div className="p-4">
           {" "}
           <h4>Programming Languages: </h4>
           <ol className="h5">
@@ -201,7 +197,7 @@ const Dashboard = () => {
         </div>
 
         <div className="p-4">
-          <h4> Other Techincal Skills:</h4>
+          <h4>Techincal Skills:</h4>
           <ol className="h5 ">
             {techSkills.map((elem) => {
               return <li>{elem}</li>;
@@ -209,7 +205,7 @@ const Dashboard = () => {
           </ol>
         </div>
         <div className="p-4">
-          <h4> Other Non Techincal Skills:</h4>
+          <h4>Non Techincal Skills:</h4>
           <ol className="h5 ">
             {nontechSkills.map((elem) => {
               return <li>{elem}</li>;

@@ -25,7 +25,10 @@ const UserRegistration = () => {
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="For eg: abc@gmail.com" />
           </Form.Group>
-
+          <Form.Group controlId="contact">
+            <Form.Label>Contact</Form.Label>
+            <Form.Control type="contact" placeholder="For eg: 9814512436" />
+          </Form.Group>
           <Form.Group controlId="occupation">
             <Form.Label>Your Current Expertise</Form.Label>
             <Form.Control type="text" placeholder="For Eg: Computer Science" />
